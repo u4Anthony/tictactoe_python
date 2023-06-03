@@ -16,7 +16,7 @@ play_area = tk.Frame(root, width=300, height=300, bg='white')
 X_points = []
 O_points = []
 class XOPoint:
-    def __init__(self, x, y): 
+    def __init__(self, x, y):
         self.x = x
         self.y = y
         self.value = None
@@ -91,6 +91,7 @@ winning_possibilities = [
 def check_win():
     if len(X_points) + len(O_points) == 9:
         print("Draw!")
+        return
     for possibility in winning_possibilities:
         if possibility.check("X"):
             print("X won!")
@@ -98,7 +99,7 @@ def check_win():
         elif possibility.check("O"):
             print("O won!")
             return
-        
+
 play_area.pack(pady=10, padx=10)
 
 root.mainloop()
