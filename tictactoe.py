@@ -9,7 +9,7 @@ root.title("Tic Tac Toe")
 tk.Label(root, text="Tic Tac Toe", font=('Ariel', 25)).pack()
 
 # Add Status Label
-status_label = tk.Label(root, text="", font=('Ariel', 15), bg='green', fg='snow')
+status_label = tk.Label(root, text="X's turn!", font=('Ariel', 15), bg='green', fg='snow')
 status_label.pack(fill=tk.X)
 
 # Set the first character
@@ -35,9 +35,11 @@ class XOPoint:
             if current_chr == "X":
                 X_points.append(self)
                 current_chr = "O"
+                status_label.configure(text="O's turn!")
             elif current_chr == "O":
                 O_points.append(self)
                 current_chr = "X"
+                status_label.configure(text="X's turn!")
         check_win()
 
     def reset(self):
