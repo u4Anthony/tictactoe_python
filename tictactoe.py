@@ -89,6 +89,8 @@ winning_possibilities = [
 ]
 
 def check_win():
+    if len(X_points) + len(O_points) == 9:
+        print("Draw!")
     for possibility in winning_possibilities:
         if possibility.check("X"):
             print("X won!")
