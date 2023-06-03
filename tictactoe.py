@@ -8,6 +8,10 @@ root.title("Tic Tac Toe")
 # Add Label
 tk.Label(root, text="Tic Tac Toe", font=('Ariel', 25)).pack()
 
+# Add Status Label
+status_label = tk.Label(root, text="", font=('Ariel', 15), bg='green', fg='snow')
+status_label.pack(fill=tk.X)
+
 # Set the first character
 current_chr = "X"
 
@@ -89,16 +93,16 @@ winning_possibilities = [
 ]
 
 def check_win():
-    if len(X_points) + len(O_points) == 9:
-        print("Draw!")
-        return
     for possibility in winning_possibilities:
         if possibility.check("X"):
-            print("X won!")
+            status_label.configure(text="X Won!")
             return
         elif possibility.check("O"):
-            print("O won!")
+            status_label.configure(text="O Won!")
             return
+    if len(X_points) + len(O_points) == 9:
+        status_label.configure(text="Its a Draw!")
+        return
 
 play_area.pack(pady=10, padx=10)
 
